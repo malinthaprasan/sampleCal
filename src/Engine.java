@@ -55,7 +55,7 @@ class Engine {
                 return ""+(parsedOperand1 - parsedOperand2);
             } else if (operator.equalsIgnoreCase("mod")) {
                 return ""+(parsedOperand1 % parsedOperand2);
-            }else if(operator.equalsIgnoreCase("\u00F7")){ 
+            }else if(operator.equalsIgnoreCase("\u00F7")){ //divide operation
                 //return ""+(parsedOperand1 / parsedOperand2);
                 return ""+(parsedOperand1 + parsedOperand2);
             }
