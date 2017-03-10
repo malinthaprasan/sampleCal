@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-class ButtonHolder extends JButton{
+class ButtonHolder extends JButton {
     String type; //numeric, operator, single_operator, command, sign, percent, equal
     String pureName; //descriptive non-space name of the button
     String screenText; //Actual text to be shown in screen
@@ -16,7 +16,8 @@ class ButtonHolder extends JButton{
     }
 
     public String toString() {
-        return "{type: " + this.type + ", pureName: " + this.pureName + ", button:" + this.getText() + ", screenText: " + this.screenText + "}";
+        return "{type: " + this.type + ", pureName: " + this.pureName + ", button:" + this.getText() + ", screenText: "
+                + this.screenText + "}";
     }
 
     public boolean isOperator() {
@@ -41,7 +42,7 @@ class ButtonHolder extends JButton{
         //Command keys
         map.put("delete", new ButtonHolder("command", "delete", "DE", ""));
         map.put("clear", new ButtonHolder("command", "clear", "C", ""));
-        
+
         //map.put("exit", new ButtonHolder("command", "exit", "EXIT", ""));
         map.put("exit", new ButtonHolder("command", "exit", "EXXIT", ""));
 
@@ -56,7 +57,7 @@ class ButtonHolder extends JButton{
         map.put("square", new ButtonHolder("single_operator", "square", "x\u00B2", "x\u00B2"));
         map.put("cube", new ButtonHolder("single_operator", "cube", "x\u00B3", "x\u00B3"));
         map.put("sqrt", new ButtonHolder("single_operator", "square_root", "\u221A", "\u221A"));
-        String[] strings = {"sin", "cos", "tan", "asin", "acos", "atan", "sinh", "cosh", "tanh", "ln", "log"};
+        String[] strings = { "sin", "cos", "tan", "asin", "acos", "atan", "sinh", "cosh", "tanh", "ln", "log" };
         map.put("ten_power", new ButtonHolder("single_operator", "ten_power", "10^n", "10^n"));
         map.put("abs", new ButtonHolder("single_operator", "absolute", "abs", "abs"));
         for (String text : strings) {
@@ -76,7 +77,7 @@ class ButtonHolder extends JButton{
         return keyList;
     }
 
-    static ArrayList<String> getScreenTextListByType(Map<String, ButtonHolder> buttonHolderMap, String type){
+    static ArrayList<String> getScreenTextListByType(Map<String, ButtonHolder> buttonHolderMap, String type) {
         ArrayList<String> textList = new ArrayList();
         for (String mapKey : buttonHolderMap.keySet()) {
             ButtonHolder buttonHolder = buttonHolderMap.get(mapKey);

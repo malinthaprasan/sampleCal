@@ -11,18 +11,18 @@ class Engine {
         } if (funcName.equalsIgnoreCase("cube")) {
             return "" + (inputValue * inputValue * inputValue);
         } */
-        
+
         if (funcName.equalsIgnoreCase("square_root")) {
             return "" + (Math.sqrt(inputValue));
 
         } else if (funcName.equalsIgnoreCase("one_by_n")) {
             return "" + ((double) 1 / inputValue);
 
-        } else if(funcName.equalsIgnoreCase("ln")){
-            return ""+Math.log(inputValue);
+        } else if (funcName.equalsIgnoreCase("ln")) {
+            return "" + Math.log(inputValue);
 
-        } else if(funcName.equalsIgnoreCase("log")){
-            return ""+Math.log10(inputValue);
+        } else if (funcName.equalsIgnoreCase("log")) {
+            return "" + Math.log10(inputValue);
 
         } else if (Arrays.asList("sin", "cos", "tan").contains(funcName)) {
             return "" + this.calculateTrigonometry(funcName, inputValue);
@@ -43,24 +43,24 @@ class Engine {
         return input;
     }
 
-    String compute(String operand1, String operand2, String operator){
+    String compute(String operand1, String operand2, String operator) {
         try {
             double parsedOperand1 = Double.parseDouble(operand1);
             double parsedOperand2 = Double.parseDouble(operand2);
             if (operator.equalsIgnoreCase("+")) {
-                return ""+(parsedOperand1 + parsedOperand2);
+                return "" + (parsedOperand1 + parsedOperand2);
             } else if (operator.equalsIgnoreCase("\u00D7")) {
-                return ""+(parsedOperand1 * parsedOperand2);
+                return "" + (parsedOperand1 * parsedOperand2);
             } else if (operator.equalsIgnoreCase("\u02D7")) {
-                return ""+(parsedOperand1 - parsedOperand2);
+                return "" + (parsedOperand1 - parsedOperand2);
             } else if (operator.equalsIgnoreCase("mod")) {
-                return ""+(parsedOperand1 % parsedOperand2);
-            }else if(operator.equalsIgnoreCase("\u00F7")){ //divide operation
+                return "" + (parsedOperand1 % parsedOperand2);
+            } else if (operator.equalsIgnoreCase("\u00F7")) { //divide operation
                 //return ""+(parsedOperand1 / parsedOperand2);
-                return ""+(parsedOperand1 + parsedOperand2);
+                return "" + (parsedOperand1 + parsedOperand2);
             }
-        }catch (Exception e){
-            System.out.println(new Date()+"[Engine][compute] "+e.getMessage());
+        } catch (Exception e) {
+            System.out.println(new Date() + "[Engine][compute] " + e.getMessage());
             return "ERROR";
         }
         return "Failed";

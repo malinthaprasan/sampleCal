@@ -68,7 +68,6 @@ public class CalculatorLayout extends JFrame implements ActionListener {
     private char operation = ' ';// Operation
     static Color windowColor = new Color(110, 119, 129);//Color of container window
 
-
     //==================Default Constructor to Design the layout of the calculator===========================
     public CalculatorLayout() {
         setBackground(windowColor);
@@ -226,7 +225,6 @@ public class CalculatorLayout extends JFrame implements ActionListener {
         pKeypad1.add(bOneByN).setBounds(172, 152, 54, 38);
         pKeypad1.add(bPercent).setBounds(226, 152, 54, 38);
         pKeypad1.add(bSqrt).setBounds(280, 152, 54, 38);
-
 
         //==========================Designing the keypad2(scientific Keys) of the calculator =====================
 
@@ -502,7 +500,8 @@ public class CalculatorLayout extends JFrame implements ActionListener {
                 tfRawInput.setText(sRawInput);
                 isPlus = true;
             }
-        } else if (e.getSource() == bAdd && (!sDisplay.equals("") || operation == '=')) // + button is clicked and input is not empty
+        } else if (e.getSource() == bAdd && (!sDisplay.equals("")
+                || operation == '=')) // + button is clicked and input is not empty
         {
             if (!isOperation)//to check if plus without number1
             {
@@ -543,7 +542,8 @@ public class CalculatorLayout extends JFrame implements ActionListener {
                 tfRawInput.setText(sRawInput);
             }
             isOperation = true;
-        } else if (e.getSource() == bSub && (!sDisplay.equals("") || operation == '='))  // - button is clicked and input is not empty
+        } else if (e.getSource() == bSub && (!sDisplay.equals("")
+                || operation == '='))  // - button is clicked and input is not empty
         {
             if (!isOperation)//to check if plus without number1
             {
@@ -580,7 +580,8 @@ public class CalculatorLayout extends JFrame implements ActionListener {
                 tfRawInput.setText(sRawInput);
             }
             isOperation = true;
-        } else if (e.getSource() == bMul && (!sDisplay.equals("") || operation == '='))  // * button is clicked and input is not empty
+        } else if (e.getSource() == bMul && (!sDisplay.equals("")
+                || operation == '='))  // * button is clicked and input is not empty
         {
             if (!isOperation)//to check if plus without number1
             {
@@ -615,7 +616,8 @@ public class CalculatorLayout extends JFrame implements ActionListener {
                 tfRawInput.setText(sRawInput);
             }
             isOperation = true;
-        } else if (e.getSource() == bDiv && (!sDisplay.equals("") || operation == '='))  // bDivision button is clicked and input is not empty
+        } else if (e.getSource() == bDiv && (!sDisplay.equals("")
+                || operation == '='))  // bDivision button is clicked and input is not empty
         {
             if (!isOperation)//to check if plus without number1
             {
@@ -685,7 +687,8 @@ public class CalculatorLayout extends JFrame implements ActionListener {
                 tfRawInput.setText(sRawInput);
             }
             isOperation = true;
-        } else if (e.getSource() == bEqual && !sDisplay.equals(""))//when bEqual button is clicked and the input is not empty
+        } else if (e.getSource() == bEqual && !sDisplay
+                .equals(""))//when bEqual button is clicked and the input is not empty
         {
             number2 = Double.parseDouble(sDisplay);
 
@@ -703,7 +706,8 @@ public class CalculatorLayout extends JFrame implements ActionListener {
                 result = number2;
             }
             String temp = "";
-            if (isPoint || operation == '/')//when there is any bPoint number or any bDivision operation, there may be a bPoint in the result
+            if (isPoint || operation
+                    == '/')//when there is any bPoint number or any bDivision operation, there may be a bPoint in the result
             {
                 tfDisplay.setText("" + result);
                 temp = "" + result;

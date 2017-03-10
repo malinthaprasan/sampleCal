@@ -28,7 +28,7 @@ class ElementContainer extends JFrame {
     }
 
     private void setupDisplay() {
-        System.out.println("["+new Date()+"][ElementContainer][setupDisplay] Setting up display screens...");
+        System.out.println("[" + new Date() + "][ElementContainer][setupDisplay] Setting up display screens...");
         JPanel screen = new JPanel();
         screen.setLayout(null);
         int screenHeight = (int) (this.getHeight() * Helper.SCREEN_RATIO);
@@ -54,11 +54,11 @@ class ElementContainer extends JFrame {
         this.outputDisplay.setEditable(false);
         this.outputDisplay.setBackground(Helper.GREEN);
         this.outputDisplay.setForeground(Color.BLACK);
-        System.out.println("["+new Date()+"][ElementContainer][setupDisplay] Done!");
+        System.out.println("[" + new Date() + "][ElementContainer][setupDisplay] Done!");
     }
 
     private void setupKeyPad() {
-        System.out.println("["+new Date()+"][ElementContainer][setupKeyPad] Setting up keypad...");
+        System.out.println("[" + new Date() + "][ElementContainer][setupKeyPad] Setting up keypad...");
         //------------setting font, color and style of buttons-------
         ArrayList<String> mapKeys = ButtonHolder.getMapKeysByType(this.buttonHolderMap, "numeric");
         this.prepareButtons(mapKeys, Helper.KEY_FONT_MD, Helper.GREY);
@@ -90,19 +90,19 @@ class ElementContainer extends JFrame {
 
         this.fixButtonsPlacement();
 
-        System.out.println("["+new Date()+"][ElementContainer][setupKeyPad] Done!");
+        System.out.println("[" + new Date() + "][ElementContainer][setupKeyPad] Done!");
     }
 
-    private void setupFooter(){
-        System.out.println("["+new Date()+"][ElementContainer][setupFooter] Setting up footer...");
+    private void setupFooter() {
+        System.out.println("[" + new Date() + "][ElementContainer][setupFooter] Setting up footer...");
         int footerY = (int) (this.getHeight() * (Helper.SCREEN_RATIO + Helper.KEYPAD_RATIO));
-        int footerHeight = (int)(this.getHeight() * Helper.FOOTER_RATIO);
+        int footerHeight = (int) (this.getHeight() * Helper.FOOTER_RATIO);
         this.add(footer).setBounds(0, footerY, this.getWidth(), footerHeight);
 
-        JLabel copyrightTag = new JLabel("\u00A9 "+ Year.now().getValue()+"  ABC Company");
+        JLabel copyrightTag = new JLabel("\u00A9 " + Year.now().getValue() + "  ABC Company");
         copyrightTag.setForeground(Helper.BLUE);
         this.footer.add(copyrightTag).setBounds(0, 0, this.footer.getWidth(), this.footer.getHeight());
-        System.out.println("["+new Date()+"][ElementContainer][setupFooter] Done!");
+        System.out.println("[" + new Date() + "][ElementContainer][setupFooter] Done!");
     }
 
     private void prepareButtons(ArrayList<String> buttonHolderMapKeys, Font font, Color bgColor) {
@@ -118,35 +118,35 @@ class ElementContainer extends JFrame {
     }
 
     private void fixButtonsPlacement() {
-        System.out.println("["+new Date()+"][ElementContainer][fixButtonsPlacement] Placing buttons...");
+        System.out.println("[" + new Date() + "][ElementContainer][fixButtonsPlacement] Placing buttons...");
 
         int btnWidth = this.keyPad.getWidth() / Helper.BUTTON_PER_LINE;
         this.keyPad.add(this.buttonHolderMap.get("clear")).setBounds(0, 0, btnWidth, Helper.BUTTON_HEIGHT);
         this.keyPad.add(this.buttonHolderMap.get("delete")).setBounds(btnWidth, 0, btnWidth, Helper.BUTTON_HEIGHT);
 
-        String[] commonButtons = {"1", "2", "3", "add", "sub", "4", "5", "6", "mul", "div", "7", "8", "9", "mod", "0", "point", "percent", "equal"};
+        String[] commonButtons = { "1", "2", "3", "add", "sub", "4", "5", "6", "mul", "div", "7", "8", "9", "mod", "0",
+                "point", "percent", "equal" };
         this.setButtonByKeyList(commonButtons, Helper.BUTTON_HEIGHT);
 
-        String[] scientificButtons = {"sin", "cos", "tan", "ln", "log", "one_by_n", "square", "cube", "sqrt", "exit"};
-        this.setButtonByKeyList(scientificButtons, 6*Helper.BUTTON_HEIGHT);
-        System.out.println("["+new Date()+"][ElementContainer][fixButtonsPlacement] Done!");
+        String[] scientificButtons = { "sin", "cos", "tan", "ln", "log", "one_by_n", "square", "cube", "sqrt", "exit" };
+        this.setButtonByKeyList(scientificButtons, 6 * Helper.BUTTON_HEIGHT);
+        System.out.println("[" + new Date() + "][ElementContainer][fixButtonsPlacement] Done!");
     }
 
-    private void setButtonByKeyList(String[] buttonsKeys, int startY){
+    private void setButtonByKeyList(String[] buttonsKeys, int startY) {
         int btnPerLine = Helper.BUTTON_PER_LINE;
         int btnWidth = this.keyPad.getWidth() / btnPerLine;
         int btnHeight = Helper.BUTTON_HEIGHT;
         int extraBlock = this.totalExtraBlock(buttonsKeys.length, btnPerLine);
 
         int rowCounter = 0, colCounter = 0, counter = 0;
-        for(String buttonKey: buttonsKeys){
+        for (String buttonKey : buttonsKeys) {
             int x = colCounter * btnWidth, y = rowCounter * btnHeight + startY;
 
-
-            if(buttonKey.equalsIgnoreCase("mod") || buttonKey.equalsIgnoreCase("equal")){
-                this.keyPad.add(this.buttonHolderMap.get(buttonKey)).setBounds(x, y, btnWidth*2, btnHeight);
-                counter +=2;
-            }else{
+            if (buttonKey.equalsIgnoreCase("mod") || buttonKey.equalsIgnoreCase("equal")) {
+                this.keyPad.add(this.buttonHolderMap.get(buttonKey)).setBounds(x, y, btnWidth * 2, btnHeight);
+                counter += 2;
+            } else {
                 this.keyPad.add(this.buttonHolderMap.get(buttonKey)).setBounds(x, y, btnWidth, btnHeight);
                 counter++;
             }
@@ -155,7 +155,7 @@ class ElementContainer extends JFrame {
         }
     }
 
-    private int totalExtraBlock(int numberOfBtn, int btnPerLine){
+    private int totalExtraBlock(int numberOfBtn, int btnPerLine) {
         return numberOfBtn - (numberOfBtn % btnPerLine);
     }
 }

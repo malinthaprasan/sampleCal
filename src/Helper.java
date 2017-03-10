@@ -27,19 +27,19 @@ class Helper {
     final static double INPUT_DISPLAY_RATIO = 0.3;
     final static double OUTPUT_DISPLAY_RATIO = 0.7;
 
-    static String getFoundOperator(String str, ArrayList<String> keys){
-        for(String key:keys){
-            if(str.contains(key)){
+    static String getFoundOperator(String str, ArrayList<String> keys) {
+        for (String key : keys) {
+            if (str.contains(key)) {
                 return key;
             }
         }
         return "";
     }
 
-    static boolean isLastChar(String string, ArrayList<String> elements){
-        String lastChar = string.substring(string.length()-1);
-        for(String element:elements){
-            if(lastChar.equalsIgnoreCase(element)){
+    static boolean isLastChar(String string, ArrayList<String> elements) {
+        String lastChar = string.substring(string.length() - 1);
+        for (String element : elements) {
+            if (lastChar.equalsIgnoreCase(element)) {
                 return true;
             }
         }
