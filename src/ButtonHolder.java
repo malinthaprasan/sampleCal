@@ -44,7 +44,7 @@ class ButtonHolder extends JButton {
         map.put("clear", new ButtonHolder("command", "clear", "C", ""));
 
         //map.put("exit", new ButtonHolder("command", "exit", "EXIT", ""));
-        map.put("exit", new ButtonHolder("command", "exit", "EXXIT", ""));
+        map.put("exit", new ButtonHolder("command", "exit", "EXIT", ""));
 
         //Percent keys
         map.put("percent", new ButtonHolder("percent", "percent", "%", "%"));
