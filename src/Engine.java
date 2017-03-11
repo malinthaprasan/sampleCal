@@ -37,9 +37,9 @@ class Engine {
             return Math.sin(radianInput);
         } else if (functionName.equalsIgnoreCase("cos")) {
             return Math.cos(radianInput);
-        } /* else if (functionName.equalsIgnoreCase("tan")) {
+        }  else if (functionName.equalsIgnoreCase("tan")) {
             return Math.tan(radianInput);
-        } */
+        } 
         return input;
     }
 
